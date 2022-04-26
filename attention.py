@@ -261,25 +261,25 @@ class CAM(Layer):
         return out
 
 
-def dual_attention(x, filters):
+def dual_attention(x):
     pam = PAM()(x)
-    pam = Conv2D(filters*2, 3, padding='same', use_bias=False, kernel_initializer='he_normal')(pam)
+    pam = Conv2D(512, 3, padding='same', use_bias=False, kernel_initializer='he_normal')(pam)
     pam = BatchNormalization(axis=3)(pam)
     pam = Activation('relu')(pam)
     pam = Dropout(0.5)(pam)
-    pam = Conv2D(filters*2, 3, padding='same', use_bias=False, kernel_initializer='he_normal')(pam)
+    pam = Conv2D(512, 3, padding='same', use_bias=False, kernel_initializer='he_normal')(pam)
 
     cam = CAM()(x)
-    cam = Conv2D(filters*2, 3, padding='same', use_bias=False, kernel_initializer='he_normal')(cam)
+    cam = Conv2D(512, 3, padding='same', use_bias=False, kernel_initializer='he_normal')(cam)
     cam = BatchNormalization(axis=3)(cam)
     cam = Activation('relu')(cam)
     cam = Dropout(0.5)(cam)
-    cam = Conv2D(filters*2, 3, padding='same', use_bias=False, kernel_initializer='he_normal')(cam)
+    cam = Conv2D(512, 3, padding='same', use_bias=False, kernel_initializer='he_normal')(cam)
 
     feature_sum = add([pam, cam])
     feature_sum = Dropout(0.5)(feature_sum)
 
-    x = Conv2D(filters, 1, padding='same', kernel_initializer='he_normal')(x)
+    x = Conv2D(512, 1, padding='same', kernel_initializer='he_normal')(x)
     x = BatchNormalization(axis=3)(x)
     x = Activation('relu')(x)
     return x
