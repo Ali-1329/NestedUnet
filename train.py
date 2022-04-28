@@ -72,7 +72,7 @@ if __name__ == "__main__":
     valid_y = sorted(glob(os.path.join(valid_path, "masks/*")))
 
     model_path='/content/drive/MyDrive/files/model.h5'
-    batch_size = 8
+    batch_size = 2
     epochs = 100
     lr = 1e-4
 
