@@ -11,6 +11,9 @@ from tensorflow.keras.metrics import *
 from tensorflow.keras.utils import CustomObjectScope
 from utils import *
 from metrics import *
+from attention import *
+from model import *
+
 
 
 if __name__=='__main__':
