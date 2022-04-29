@@ -29,7 +29,8 @@ def load_model_weight(path):
         'dice_coef': dice_coef,
         'bce_dice_loss': bce_dice_loss,
         'focal_loss': focal_loss,
-        'iou': iou
+        'iou': iou,
+        'spatial_attention': spatial_attention, 
         }):
         model = load_model(path)
     return model
