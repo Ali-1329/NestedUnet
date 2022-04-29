@@ -7,6 +7,7 @@ from sklearn.utils import shuffle
 from tensorflow.keras.utils import CustomObjectScope
 from tensorflow.keras.models import load_model
 from metrics import *
+from attention import *
 
 def create_dir(path):
     """ Create a directory. """
