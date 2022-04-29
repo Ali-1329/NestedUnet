@@ -68,7 +68,7 @@ if __name__=='__main__':
 
     model = load_model_weight("/content/drive/MyDrive/files/model.h5")
 
-    if not os.path.exists(create_dir("/content/drive/MyDrive/files")):
+    if not os.path.exists("/content/drive/MyDrive/files"):
         create_dir("/content/drive/MyDrive/files")
     model.compile(loss=dice_loss, optimizer=Nadam(lr), metrics=metrics)
 
