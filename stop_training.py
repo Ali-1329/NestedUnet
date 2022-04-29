@@ -33,9 +33,9 @@ if __name__=='__main__':
     valid_y = sorted(glob(os.path.join(valid_path, "masks/*")))
 
     model_path='/content/drive/MyDrive/files/model.h5'
-    batch_size = 8
+    batch_size = 2
     epochs = 50
-    lr =1e-6
+    lr =1e-4
 
     metrics=[Recall(), Precision(), dice_coef, MeanIoU(num_classes=2)]
 
